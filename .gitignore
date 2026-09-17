@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-<<<<<<< HEAD
 .nomedia
 
 # Godot-specific ignores
@@ -16,6 +15,3 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
-=======
-/android/
->>>>>>> 72a53f3 (initial commit - basic high level multiplayer setup, vehicle using Vehicle3D and RigidBody3D)
