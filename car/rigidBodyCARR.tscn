@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ielpwn7jmuq"]
 
+[ext_resource type="Texture2D" uid="uid://cohvoj0rjjf24" path="res://assets/glTF/YELLOW_prototype_grid_main.png" id="1_ocryh"]
+
 [sub_resource type="GDScript" id="GDScript_ldxav"]
 resource_name = "rayCastCar"
 script/source = "extends RigidBody3D
@@ -8,7 +10,7 @@ script/source = "extends RigidBody3D
 @export var spring_strength : int = 100
 @export var spring_damping : int = 2
 @export var rest_dist : float = 0.5
-
+@export var wheel_r : float = 0.4
 
 func _physics_process(delta: float) -> void:
 	for wheel in wheels:
@@ -16,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _get_point_velocity(point : Vector3) -> Vector3:
-	return linear_velocity * angular_velocity.cross(point - global_position)
+	return linear_velocity + angular_velocity.cross(point - global_position)
 
 
 func _do_single_wheel_suspension(suspension_ray : RayCast3D) -> void:
@@ -24,8 +26,10 @@ func _do_single_wheel_suspension(suspension_ray : RayCast3D) -> void:
 		var contact := suspension_ray.get_collision_point()
 		var spring_up_dir := suspension_ray.global_transform.basis.y
 		
-		var spring_len := suspension_ray.global_position.distance_to(contact)
+		var spring_len := suspension_ray.global_position.distance_to(contact) - wheel_r
 		var offset := rest_dist - spring_len
+		
+		suspension_ray.get_node(\"wheel\").position.y = -spring_len
 		
 		var spring_force := spring_strength * offset
 		var world_vel := _get_point_velocity(contact)
@@ -49,15 +53,29 @@ size = Vector3(0.65, 0.4, 1.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqn1"]
 size = Vector3(1, 0.5, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rysa"]
+albedo_texture = ExtResource("1_ocryh")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mtrtu"]
+material = SubResource("StandardMaterial3D_0rysa")
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.15
+
 [node name="car" type="RigidBody3D" unique_id=2053723318 node_paths=PackedStringArray("wheels")]
+mass = 50.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.3, 0)
 script = SubResource("GDScript_ldxav")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
+spring_strength = 5000
+spring_damping = 90
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=532004285]
+[node name="carMesh" type="MeshInstance3D" parent="." unique_id=532004285]
 mesh = SubResource("BoxMesh_ldxav")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=276662903]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43911672, 1.0663204)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="carMesh" unique_id=276662903]
+transform = Transform3D(2.4425404, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43911672, 0.4952842)
 mesh = SubResource("BoxMesh_wlws6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=123519727]
@@ -67,11 +85,30 @@ shape = SubResource("BoxShape3D_reqn1")
 [node name="wheelFL" type="RayCast3D" parent="." unique_id=602137111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0147783, 0, -1.3)
 
+[node name="wheel" type="MeshInstance3D" parent="wheelFL" unique_id=370826648]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.052307725, -0.27182433, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
 [node name="wheelRL" type="RayCast3D" parent="." unique_id=1364316727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0147783, 0, 1.3)
+
+[node name="wheel" type="MeshInstance3D" parent="wheelRL" unique_id=810923448]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.272, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
 
 [node name="wheelFR" type="RayCast3D" parent="." unique_id=1301980170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0073045, 0, -1.3)
 
+[node name="wheel" type="MeshInstance3D" parent="wheelFR" unique_id=203100467]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.272, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
 [node name="wheelRR" type="RayCast3D" parent="." unique_id=665877513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0073045, 0, 1.3)
+
+[node name="wheel" type="MeshInstance3D" parent="wheelRR" unique_id=1814473297]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.272, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1706670244]
+transform = Transform3D(-0.27118304, 0.47759956, -0.83567846, 0.057993088, 0.8747423, 0.4811058, 0.9607792, 0.08200415, -0.26491275, -4.05435, 2.0338366, -1.0365963)
