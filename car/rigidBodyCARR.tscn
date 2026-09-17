@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://ielpwn7jmuq"]
+
+[sub_resource type="GDScript" id="GDScript_ldxav"]
+resource_name = "rayCastCar"
+script/source = "extends RigidBody3D
+
+@export var wheels : Array[RayCast3D]
+@export var spring_strength : int = 100
+@export var spring_damping : int = 2
+@export var rest_dist : float = 0.5
+
+
+func _physics_process(delta: float) -> void:
+	for wheel in wheels:
+		_do_single_wheel_suspension(wheel)
+
+
+func _get_point_velocity(point : Vector3) -> Vector3:
+	return linear_velocity * angular_velocity.cross(point - global_position)
+
+
+func _do_single_wheel_suspension(suspension_ray : RayCast3D) -> void:
+	if suspension_ray.is_colliding():
+		var contact := suspension_ray.get_collision_point()
+		var spring_up_dir := suspension_ray.global_transform.basis.y
+		
+		var spring_len := suspension_ray.global_position.distance_to(contact)
+		var offset := rest_dist - spring_len
+		
+		var spring_force := spring_strength * offset
+		var world_vel := _get_point_velocity(contact)
+		var relative_vel := spring_up_dir.dot(world_vel)
+		var spring_damp_force := spring_damping * relative_vel 
+		
+		
+		var force_vector := (spring_force - spring_damp_force) * spring_up_dir
+		
+		var force_pos_offset := contact - global_position
+		apply_force(force_vector, force_pos_offset)
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_ldxav"]
+lightmap_size_hint = Vector2i(34, 31)
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlws6"]
+size = Vector3(0.65, 0.4, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reqn1"]
+size = Vector3(1, 0.5, 4)
+
+[node name="car" type="RigidBody3D" unique_id=2053723318 node_paths=PackedStringArray("wheels")]
+script = SubResource("GDScript_ldxav")
+wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=532004285]
+mesh = SubResource("BoxMesh_ldxav")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=276662903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43911672, 1.0663204)
+mesh = SubResource("BoxMesh_wlws6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=123519727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009216309, 0)
+shape = SubResource("BoxShape3D_reqn1")
+
+[node name="wheelFL" type="RayCast3D" parent="." unique_id=602137111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0147783, 0, -1.3)
+
+[node name="wheelRL" type="RayCast3D" parent="." unique_id=1364316727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0147783, 0, 1.3)
+
+[node name="wheelFR" type="RayCast3D" parent="." unique_id=1301980170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0073045, 0, -1.3)
+
+[node name="wheelRR" type="RayCast3D" parent="." unique_id=665877513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0073045, 0, 1.3)

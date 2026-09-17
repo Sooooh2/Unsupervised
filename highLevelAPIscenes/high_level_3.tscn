@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c6xc2lanrv6lu"]
+
+[ext_resource type="PackedScene" uid="uid://cryxst4q1rlu7" path="res://highLevelAPIscenes/high_level_ui.tscn" id="1_bn7sk"]
+[ext_resource type="PackedScene" uid="uid://cvrmicumhrwfc" path="res://highLevelAPIscenes/highLevelPlayer3.tscn" id="2_2kdo4"]
+
+[sub_resource type="GDScript" id="GDScript_bn7sk"]
+
+[sub_resource type="GDScript" id="GDScript_jpjkc"]
+script/source = "extends MultiplayerSpawner
+
+
+
+@export var networkPlayer : PackedScene
+
+func _ready() -> void:
+	multiplayer.peer_connected.connect(spawn_player)
+
+
+func spawn_player(id : int) -> void: 
+	if !multiplayer.is_server(): 
+		return
+	
+	var player : Node = networkPlayer.instantiate()
+	player.name = str(id)
+	
+	get_node(spawn_path).call_deferred(\"add_child\", player)
+	
+"
+
+[node name="highLevel3" type="Node3D" unique_id=1839221964]
+script = SubResource("GDScript_bn7sk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1892064987]
+
+[node name="highLevelUI" parent="CanvasLayer" unique_id=882719446 instance=ExtResource("1_bn7sk")]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1947015221]
+_spawnable_scenes = PackedStringArray("uid://cvrmicumhrwfc")
+spawn_path = NodePath("..")
+script = SubResource("GDScript_jpjkc")
+networkPlayer = ExtResource("2_2kdo4")

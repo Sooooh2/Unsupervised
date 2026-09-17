@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dm46ukmj8wm5f"]
+
+[ext_resource type="PackedScene" uid="uid://ci3815spvip4r" path="res://assets/glTF/WL_WINDOW.gltf" id="1_s3sr4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s3sr4"]
+points = PackedVector3Array(0, 0, -4, 0, 3, -4, 1, 0, -4, 0, 0, 0, 1, 3, -4, 0, 3, 0, 1, 0, 0, 1, 3, 0)
+
+[node name="WL_WINDOW2" unique_id=731597119 instance=ExtResource("1_s3sr4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=2052589144]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1178282165]
+shape = SubResource("ConvexPolygonShape3D_s3sr4")

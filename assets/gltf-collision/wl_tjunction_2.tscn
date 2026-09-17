@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cq4mma75ls7fl"]
+
+[ext_resource type="PackedScene" uid="uid://cmimvemkdsa8c" path="res://assets/glTF/WL_TJUNCTION.gltf" id="1_vf1o5"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b4l34"]
+data = PackedVector3Array(1, 0, -1, 0, 0, -2, 1, 0, -2, 1, 0, -1, 0, 0, -1, 0, 0, -2, 1, 3, -1, 0, 3, -2, 1, 3, -2, 1, 3, -1, 0, 3, -1, 0, 3, -2, 1, 3, -2, 1, 0, -3, 1, 0, -2, 1, 3, -2, 1, 3, -3, 1, 0, -3, 1, 0, -1, 1, 3, 0, 1, 3, -1, 1, 0, -1, 1, 0, 0, 1, 3, 0, 0, 0, -2, 0, 3, -1, 0, 0, -1, 0, 0, -2, 0, 3, -2, 0, 3, -1, 1, 0, -2, 2, 3, -2, 1, 3, -2, 1, 0, -2, 2, 0, -2, 2, 3, -2, 2, 0, -1, 2, 3, -2, 2, 0, -2, 2, 0, -1, 2, 3, -1, 2, 3, -2, 1, 3, -2, 2, 3, -1, 1, 3, -1, 1, 3, -2, 2, 3, -2, 2, 3, -1, 1, 0, -1, 2, 0, -2, 2, 0, -1, 1, 0, -1, 1, 0, -2, 2, 0, -2, 1, 3, -1, 2, 0, -1, 1, 0, -1, 1, 3, -1, 2, 3, -1, 2, 0, -1, 1, 0, -3, 0, 3, -3, 0, 0, -3, 1, 0, -3, 1, 3, -3, 0, 3, -3, 0, 0, -2, 0, 3, -3, 0, 3, -2, 0, 0, -2, 0, 0, -3, 0, 3, -3, 0, 3, -2, 1, 3, -3, 1, 3, -2, 0, 3, -2, 0, 3, -3, 1, 3, -3, 1, 0, -2, 0, 0, -3, 1, 0, -3, 1, 0, -2, 0, 0, -2, 0, 0, -3, 0, 0, 0, 1, 3, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 1, 3, 0, 1, 3, -1, 0, 3, 0, 0, 3, -1, 1, 3, -1, 1, 3, 0, 0, 3, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, -1, 1, 0, 0, 0, 3, -1, 0, 0, 0, 0, 0, -1, 0, 3, -1, 0, 3, 0, 0, 0, 0)
+
+[node name="WL_TJUNCTION2" unique_id=1817318407 instance=ExtResource("1_vf1o5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1720536780]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1464994873]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_b4l34")

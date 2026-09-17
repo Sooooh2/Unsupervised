@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cfpor5wkust22"]
+
+[ext_resource type="PackedScene" uid="uid://48o1opel1hg5" path="res://assets/glTF/RP_2X2.gltf" id="1_id67j"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d7e84"]
+points = PackedVector3Array(2.015674, 0.20652935, -0.3334887, 0.014712314, 0, -1.9850948, 0.014712314, 0, -0.0149052655, -0.015674174, 1.031746, -2.0154753, 1.9852877, 0, -1.9850948, 2.015674, 1.031746, -2.0154753, 1.9852877, 0, -0.0149052655, -0.015674174, 0.0478023, -0.016140223, -0.015674174, 1.031746, -1.9838598, 2.015674, 1.031746, -1.9838598, 2.015674, 0.0478023, -0.016140223, -0.015674174, 0.016015887, 0.015475273, 2.015674, 0.016015887, 0.015475273)
+
+[node name="RP_2X22" unique_id=264115110 instance=ExtResource("1_id67j")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=969799368]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1335435605]
+shape = SubResource("ConvexPolygonShape3D_d7e84")
