@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c3uvcsjspr3gg" path="res://assets/gltf-collision/rp_4x_22.tscn" id="11_cyapu"]
 [ext_resource type="PackedScene" uid="uid://vhbnttdxjs4p" path="res://assets/gltf-collision/wl_1x_2_half_2.tscn" id="12_gcbe0"]
 [ext_resource type="PackedScene" uid="uid://dhx3hv8wosgq2" path="res://assets/gltf-collision/fl_8x_82.tscn" id="13_resyw"]
-[ext_resource type="PackedScene" uid="uid://ielpwn7jmuq" path="res://car/rigidBodyCARR.tscn" id="14_13nej"]
+[ext_resource type="PackedScene" uid="uid://cxhsr7k0dapj8" path="res://car/car_better.tscn" id="14_423mq"]
 [ext_resource type="Texture2D" uid="uid://h8gj8bh1qtdv" path="res://assets/glTF/GREEN_prototype_grid_main.png" id="14_resyw"]
 
 [sub_resource type="GDScript" id="GDScript_dm6eg"]
@@ -1207,8 +1207,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wss4l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1727587899]
 shape = SubResource("ConcavePolygonShape3D_13nej")
 
-[node name="car" parent="." unique_id=2053723318 instance=ExtResource("14_13nej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.532311, 10.070038)
+[node name="carBetter" parent="." unique_id=705356281 instance=ExtResource("14_423mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8798733, 21)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1904211014]
+transform = Transform3D(1, 0, 0, 0, 0.7995694, 0.6005738, 0, -0.6005738, 0.7995694, 0.059981346, 6.1750083, 24.470432)
 
 [connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_join_pressed"]
