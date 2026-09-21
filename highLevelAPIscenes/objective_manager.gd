@@ -1,7 +1,7 @@
 extends Node
 
-@onready var objective_manager: Control = $"../objectiveUI"
-@onready var dialogue_manager: Control = $"../dialogueUI"
+@onready var objective_manager: Control = $"../ui/objectiveUI"
+@onready var dialogue_manager: Control = $"../ui/dialogueUI"
 @onready var cheese: Node3D = $"../cheese"
 
 

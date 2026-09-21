@@ -3,11 +3,15 @@ extends Node3D
 var peer = ENetMultiplayerPeer.new()
 @export var player_scene : PackedScene
 @onready var objective_manager: Node = $objectiveManager
+@onready var objective_ui: Control = $ui/objectiveUI
+@onready var dialogue_ui: Control = $ui/dialogueUI
+@onready var ui: Control = $ui/UI
 
 
 func _ready() -> void:
 	objective_manager.start_game()
-	
+
+
 
 
 func _on_host_pressed() -> void:

@@ -8,49 +8,55 @@ metallic = 0.71
 
 [node name="kitchen" unique_id=43569280 instance=ExtResource("1_ah8pn")]
 
-[node name="Area" parent="." index="0" unique_id=941374983]
+[node name="Area" parent="." index="0" unique_id=1910592328]
 transform = Transform3D(-0.56243026, 0.69888633, 0.44184858, 0.08574936, -0.48219645, 0.87185645, 0.8223863, 0.52824664, 0.2112728, 37.638878, 33.23385, 54.172234)
+visible = false
 light_energy = 50.0
 shadow_enabled = true
 omni_range = 100.0
 omni_attenuation = 1.385
 
-[node name="Area_001" parent="." index="1" unique_id=470530782]
+[node name="Area_001" parent="." index="1" unique_id=69632537]
 transform = Transform3D(0.08067894, 0.87556654, 0.47631314, 0.08574968, -0.4821963, 0.8718565, 0.99304473, -0.029496774, -0.11398264, 37.957165, 31.973022, -10.465)
+visible = false
 light_energy = 101.425
 shadow_enabled = true
 omni_range = 90.53421
 omni_attenuation = 2.59
 
-[node name="Area_003" parent="." index="2" unique_id=854229570]
+[node name="Area_003" parent="." index="2" unique_id=141080722]
 transform = Transform3D(-0.8441947, -0.4999102, -0.1934556, 0.085749716, -0.4821965, 0.8718564, -0.5291335, 0.71942776, 0.4499349, 5.0982475, 8.206631, 54.026093)
+visible = false
 light_energy = 50.0
 shadow_enabled = true
 omni_range = 39.45804
 omni_attenuation = 1.655
 
-[node name="Area_004" parent="." index="3" unique_id=1739019104]
+[node name="Area_004" parent="." index="3" unique_id=2043977789]
 transform = Transform3D(0.953362, 0.29388958, 0.06877483, 0.08574993, -0.48219636, 0.87185645, 0.2893925, -0.82529736, -0.48490864, -13.264931, 29.768585, -8.202482)
+visible = false
 light_energy = 100.0
 shadow_enabled = true
 omni_range = 100.0
 
-[node name="Area_005" parent="." index="4" unique_id=539813095]
+[node name="Area_005" parent="." index="4" unique_id=861537345]
 transform = Transform3D(0.080678955, 0.8755665, 0.47631326, 0.0857497, -0.4821964, 0.87185645, 0.99304473, -0.02949675, -0.11398266, 19.751543, 3.8309705, -10.200223)
+visible = false
 light_energy = 21.78
 shadow_enabled = true
 omni_range = 50.0
 omni_attenuation = 1.91
 
-[node name="Area_006" parent="." index="5" unique_id=2021379151]
+[node name="Area_006" parent="." index="5" unique_id=971538598]
 transform = Transform3D(0.080678955, 0.8755665, 0.47631323, 0.0857497, -0.4821964, 0.87185645, 0.99304473, -0.02949676, -0.11398266, 9.052075, 7.2015123, -14.568257)
+visible = false
 light_energy = 50.0
 shadow_enabled = true
 omni_range = 74.73755
 omni_attenuation = 0.91
 
-[node name="Cube_004" parent="Cube_002" parent_id_path=PackedInt32Array(1525635401) index="1" unique_id=601792857]
+[node name="Cube_004" parent="Cube_002" parent_id_path=PackedInt32Array(1157628637) index="1" unique_id=159302201]
 transform = Transform3D(0.16300164, 0, -0.32307726, 0, 0.37946275, 0, 0.27095795, 0, 0.19435538, -0.9999832, 0.17815995, 0.7938471)
 
-[node name="toaster" parent="." index="23" unique_id=1663932642]
+[node name="toaster" parent="." index="23" unique_id=1452569888]
 surface_material_override/0 = SubResource("StandardMaterial3D_tgv87")

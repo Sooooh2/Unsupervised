@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ctal0xt7om7nd"]
+
+[ext_resource type="Script" uid="uid://csxdhx3a8tqld" path="res://UI/pause_menu.gd" id="1_ltd3m"]
+
+[node name="pauseMenu" type="Control" unique_id=1569571817]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ltd3m")
+
+[node name="continue" type="Button" parent="." unique_id=1970530259]
+process_mode = 3
+layout_mode = 0
+offset_left = 512.0
+offset_top = 291.0
+offset_right = 640.0
+offset_bottom = 322.0
+text = "Continue Game"
+
+[node name="quit" type="Button" parent="." unique_id=94227477]
+process_mode = 3
+layout_mode = 0
+offset_left = 512.0
+offset_top = 326.0
+offset_right = 640.0
+offset_bottom = 357.0
+text = "Quit Game"
+
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
