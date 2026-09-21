@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0ek6itchwmk4"]
+
+[ext_resource type="Script" uid="uid://dga37ntgisjpl" path="res://levels/dialogue_ui.gd" id="1_5kv0d"]
+
+[node name="dialogueUI" type="Control" unique_id=1553810974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5kv0d")
+
+[node name="msg" type="RichTextLabel" parent="." unique_id=1732048162]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 3.0
+offset_right = 556.0
+offset_bottom = 66.0

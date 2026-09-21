@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ielpwn7jmuq"]
+
+[ext_resource type="Script" uid="uid://ff0bnqvea2wh" path="res://car/normalCar/rayCastCar.gd" id="1_swbrn"]
+[ext_resource type="Script" uid="uid://ccet1lco12anc" path="res://car/normalCar/rayCastWheel.gd" id="2_im1dl"]
+[ext_resource type="Texture2D" uid="uid://cohvoj0rjjf24" path="res://assets/glTF/YELLOW_prototype_grid_main.png" id="3_ut1nk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ldxav"]
+lightmap_size_hint = Vector2i(34, 31)
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlws6"]
+size = Vector3(0.65, 0.4, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reqn1"]
+size = Vector3(1.9849854, 0.41259766, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xru65"]
+albedo_texture = ExtResource("3_ut1nk")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mtrtu"]
+material = SubResource("StandardMaterial3D_xru65")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.15
+
+[node name="car" type="RigidBody3D" unique_id=2053723318 node_paths=PackedStringArray("wheels")]
+mass = 18.75
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.3, 0)
+script = ExtResource("1_swbrn")
+wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
+accelaration = 100.0
+
+[node name="carMesh" type="MeshInstance3D" parent="." unique_id=532004285]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.055628777, 0)
+mesh = SubResource("BoxMesh_ldxav")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="carMesh" unique_id=276662903]
+transform = Transform3D(2.4425404, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43911672, 0.4952842)
+mesh = SubResource("BoxMesh_wlws6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=123519727]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.055628777, 0)
+shape = SubResource("BoxShape3D_reqn1")
+debug_color = Color(0, 0.45492333, 0.5312476, 1)
+
+[node name="wheelFL" type="RayCast3D" parent="." unique_id=602137111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5353055, -0.15675226, -0.63383716)
+target_position = Vector3(0, -0.45, 0)
+script = ExtResource("2_im1dl")
+spring_strength = 1250
+spring_damping = 300
+rest_dist = 0.25
+wheel_r = 0.2
+
+[node name="wheel" type="MeshInstance3D" parent="wheelFL" unique_id=370826648]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
+[node name="wheelRL" type="RayCast3D" parent="." unique_id=1364316727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5262588, -0.15675226, 0.5894263)
+target_position = Vector3(0, -0.45, 0)
+script = ExtResource("2_im1dl")
+spring_strength = 1250
+spring_damping = 300
+rest_dist = 0.25
+wheel_r = 0.2
+is_motor = true
+
+[node name="wheel" type="MeshInstance3D" parent="wheelRL" unique_id=810923448]
+transform = Transform3D(-4.3742148e-08, -1, 0, 1, -4.3874024e-08, -6.9849193e-10, -6.9849193e-10, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
+[node name="wheelFR" type="RayCast3D" parent="." unique_id=1301980170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547, -0.15675226, -0.63)
+target_position = Vector3(0, -0.45, 0)
+script = ExtResource("2_im1dl")
+spring_strength = 1250
+spring_damping = 300
+rest_dist = 0.25
+wheel_r = 0.2
+
+[node name="wheel" type="MeshInstance3D" parent="wheelFR" unique_id=203100467]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
+[node name="wheelRR" type="RayCast3D" parent="." unique_id=665877513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547, -0.15675226, 0.589)
+target_position = Vector3(0, -0.45, 0)
+script = ExtResource("2_im1dl")
+spring_strength = 1250
+spring_damping = 300
+rest_dist = 0.25
+wheel_r = 0.2
+is_motor = true
+
+[node name="wheel" type="MeshInstance3D" parent="wheelRR" unique_id=1814473297]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_mtrtu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=484849830]
+transform = Transform3D(0.89605296, 0.07556406, -0.43746904, 0.07929487, 0.9423204, 0.32518405, 0.43680823, -0.32607117, 0.8383771, -1.5462623, 1.1333001, 2.0562882)

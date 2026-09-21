@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djghield03ot"]
+
+[ext_resource type="Script" uid="uid://c5ncmktlfy4fv" path="res://levels/objective_ui.gd" id="1_81v07"]
+
+[node name="objectiveUI" type="Control" unique_id=403045768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81v07")
+
+[node name="objective" type="RichTextLabel" parent="." unique_id=366930071]
+layout_mode = 0
+offset_right = 277.0
+offset_bottom = 82.0

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cnbpqhok56on4"]
+
+[ext_resource type="Shader" uid="uid://jrqwyt8616ka" path="res://assets/shaders/toon_shader.gdshader" id="1_i50ss"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc3vn"]
+shader = ExtResource("1_i50ss")
+shader_parameter/toon_levels = 4.0
+shader_parameter/toon_strength = 0.7
+
+[node name="postProcess" type="CanvasLayer" unique_id=1144291995]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1855611211]
+material = SubResource("ShaderMaterial_wc3vn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

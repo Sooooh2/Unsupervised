@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://2krms1ac8nav"]
+
+[ext_resource type="Script" uid="uid://bqb2m2dgbdirx" path="res://interactables/cheese.gd" id="1_bg1k6"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_xnjww"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc3vn"]
+albedo_color = Color(0.91935533, 0.7481888, 1.92523e-06, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xnjww"]
+radius = 3.7228365
+
+[node name="cheese" type="Node3D" unique_id=1484126704]
+script = ExtResource("1_bg1k6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=384597343]
+transform = Transform3D(1.61, 0, 0, 0, 1.61, 0, 0, 0, 1.61, 0, 0, 0)
+mesh = SubResource("PrismMesh_xnjww")
+surface_material_override/0 = SubResource("StandardMaterial3D_wc3vn")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1319561559]
+transform = Transform3D(1.61, 0, 0, 0, 1.61, 0, 0, 0, 1.61, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=600076959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56590295, 0)
+shape = SubResource("SphereShape3D_xnjww")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
