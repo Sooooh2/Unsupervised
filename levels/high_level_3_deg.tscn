@@ -28,18 +28,6 @@ volumetric_fog_emission = Color(0.2293199, 0.1512829, 0.12775075, 1)
 
 [sub_resource type="Compositor" id="Compositor_423mq"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_resyw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rthtd"]
-load_path = "res://.godot/imported/GREEN_prototype_grid_main.png-2c61dd27022f4b8b5b229c9f6f4f7e3c.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wss4l"]
-albedo_texture = SubResource("CompressedTexture2D_rthtd")
-uv1_scale = Vector3(435.32, 435.32, 435.32)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_13nej"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
 [node name="highLevel3Deg" type="Node3D" unique_id=282567522]
 script = ExtResource("1_suc14")
 player_scene = ExtResource("1_y35s6")
@@ -91,7 +79,7 @@ spot_attenuation = 1.15
 spot_angle = 44.238136
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="env" unique_id=1887780572]
-transform = Transform3D(0.9454333, 7.197831e-09, -0.32581574, 0.31467792, -0.25922966, 0.91311437, -0.084461085, -0.9658157, -0.24508436, -31.268343, 13.923016, -15.763007)
+transform = Transform3D(0.9454333, 7.197831e-09, -0.32581574, 0.31467792, -0.25922966, 0.91311437, -0.084461085, -0.9658157, -0.24508436, -31.268343, 22.260035, -9.497172)
 light_color = Color(0.9297078, 0.8259566, 0.5664258, 1)
 light_energy = 57.785
 shadow_enabled = true
@@ -120,18 +108,13 @@ spot_angle = 81.139534
 [node name="kitchen2" parent="env" unique_id=43569280 instance=ExtResource("3_c6e0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.477837, 6.1228943, 2.076168)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=13539993]
-transform = Transform3D(246.57709, 0, 0, 0, 2.3323388, 0, 0, 0, 182.05295, 0, -2.0250292, 0)
-mesh = SubResource("BoxMesh_resyw")
-surface_material_override/0 = SubResource("StandardMaterial3D_wss4l")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=761679145]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1727587899]
-shape = SubResource("ConcavePolygonShape3D_13nej")
-
 [node name="EvenBetterCar" parent="." unique_id=597068362 instance=ExtResource("14_423mq")]
-transform = Transform3D(-0.92408264, 0, -0.38219267, 0, 1, 0, 0.38219267, 0, -0.92408264, -40.28231, 13.712242, 32.154366)
+transform = Transform3D(0.99065274, 0, -0.13640776, 0, 1, 0, 0.13640776, 0, 0.99065274, -38.231857, 13.712242, 20.93488)
+max_rpm = null
+max_torque = null
+turn_speed = null
+turn_amt = null
+boost_multiplier = null
 
 [node name="cheese" parent="." unique_id=1484126704 instance=ExtResource("7_d7fxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.410072, 1.8792524, 4.4689374)
@@ -151,6 +134,18 @@ visible = false
 script = ExtResource("11_5t71q")
 
 [node name="postProcess" parent="." unique_id=1144291995 instance=ExtResource("6_7sups")]
+visible = false
+
+[node name="cheeseSpawner" type="Node3D" parent="." unique_id=782299939]
+
+[node name="c1" type="Marker3D" parent="cheeseSpawner" unique_id=1017666268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.703674, 1.1522708, -1.4161949)
+
+[node name="c2" type="Marker3D" parent="cheeseSpawner" unique_id=1455403978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.317184, 1.1522708, 5.8221345)
+
+[node name="c3" type="Marker3D" parent="cheeseSpawner" unique_id=1881485113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.850773, 1.1522708, 11.958979)
 
 [connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_join_pressed"]

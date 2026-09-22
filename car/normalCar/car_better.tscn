@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dic37jl80xnvm" path="res://car/normalCar/car_better.gd" id="1_v0dw5"]
 [ext_resource type="Script" uid="uid://ccet1lco12anc" path="res://car/normalCar/rayCastWheel.gd" id="2_ef6f6"]
-[ext_resource type="Texture2D" uid="uid://cohvoj0rjjf24" path="res://assets/glTF/YELLOW_prototype_grid_main.png" id="3_ejwog"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ynl7a"]
 lightmap_size_hint = Vector2i(34, 31)
@@ -15,7 +14,6 @@ size = Vector3(0.8, 0.2, 0.9)
 size = Vector3(0.99087524, 0.22790527, 1.9936523)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xru65"]
-albedo_texture = ExtResource("3_ejwog")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_g06tf"]
 material = SubResource("StandardMaterial3D_xru65")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6h0ne1cked2"]
+
+[ext_resource type="Texture2D" uid="uid://cnkokv5nkscpn" path="res://assets/textures/counter-wood.png" id="1_ajmp4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ajmp4"]
+load_path = "res://.godot/imported/rough.jpeg-3bbd71099a1f5da12f69fc2593db4f9f.s3tc.ctex"
+
+[resource]
+albedo_texture = ExtResource("1_ajmp4")
+roughness_texture = SubResource("CompressedTexture2D_ajmp4")

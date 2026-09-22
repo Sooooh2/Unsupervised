@@ -8,6 +8,8 @@ var peer = ENetMultiplayerPeer.new()
 @onready var ui: Control = $ui/UI
 
 
+
+
 func _ready() -> void:
 	objective_manager.start_game()
 

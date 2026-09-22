@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dowhu8hplt2k1"]
+
+[ext_resource type="Texture2D" uid="uid://b6iq71i8tecir" path="res://assets/textures/counterDrawer.png" id="1_oe6w5"]
+[ext_resource type="Texture2D" uid="uid://wnp8nve0fsp6" path="res://assets/textures/normalWood.jpeg" id="2_abyer"]
+[ext_resource type="Texture2D" uid="uid://nbf52q8gmctg" path="res://assets/textures/rough.jpeg" id="3_spyyt"]
+
+[resource]
+albedo_texture = ExtResource("1_oe6w5")
+roughness = 0.85
+roughness_texture = ExtResource("3_spyyt")
+normal_enabled = true
+normal_scale = 0.06
+normal_texture = ExtResource("2_abyer")
