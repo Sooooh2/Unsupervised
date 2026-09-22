@@ -3,9 +3,13 @@ extends Node
 
 enum Objectives {
 	none,
-	get_cheese
+	collect_items
 }
 
 var curr_objective : Objectives = Objectives.none
-var cheese_found := false
+var collecting_done := false
 var is_paused := false
+
+
+var is_normal := false
+var is_speedrun := false

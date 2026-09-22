@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://2krms1ac8nav" path="res://interactables/cheese.tscn" id="7_d7fxx"]
 [ext_resource type="PackedScene" uid="uid://bbwvv88fdnvae" path="res://UI/ui.tscn" id="8_521w0"]
 [ext_resource type="PackedScene" uid="uid://d0ek6itchwmk4" path="res://UI/dialogue_ui.tscn" id="9_3kh3b"]
+[ext_resource type="PackedScene" uid="uid://di5ejl7xhktk2" path="res://UI/count_down_ui.tscn" id="9_lvar7"]
 [ext_resource type="PackedScene" uid="uid://ctal0xt7om7nd" path="res://UI/pause_menu.tscn" id="10_fcw1q"]
 [ext_resource type="PackedScene" uid="uid://djghield03ot" path="res://UI/objective_ui.tscn" id="10_h7dld"]
 [ext_resource type="Script" uid="uid://c1tpee6j66iar" path="res://highLevelAPIscenes/objective_manager.gd" id="11_5t71q"]
+[ext_resource type="Script" uid="uid://cavrta4xoyh3w" path="res://levels/state_manager.gd" id="12_suc14"]
+[ext_resource type="Script" uid="uid://8g11gqvm4noh" path="res://levels/collectible_manager.gd" id="13_fcw1q"]
 [ext_resource type="PackedScene" uid="uid://dyekxr2hbadoy" path="res://car/vehicleBody3d/even_better_car.tscn" id="14_423mq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y35s6"]
@@ -109,15 +112,7 @@ spot_angle = 81.139534
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.477837, 6.1228943, 2.076168)
 
 [node name="EvenBetterCar" parent="." unique_id=597068362 instance=ExtResource("14_423mq")]
-transform = Transform3D(0.99065274, 0, -0.13640776, 0, 1, 0, 0.13640776, 0, 0.99065274, -38.231857, 13.712242, 20.93488)
-max_rpm = null
-max_torque = null
-turn_speed = null
-turn_amt = null
-boost_multiplier = null
-
-[node name="cheese" parent="." unique_id=1484126704 instance=ExtResource("7_d7fxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.410072, 1.8792524, 4.4689374)
+transform = Transform3D(0.47037494, 0, 0.8824666, 0, 1, 0, -0.8824666, 0, 0.47037494, -38.231857, 13.712242, 20.93488)
 
 [node name="ui" type="Node3D" parent="." unique_id=54768065]
 
@@ -130,8 +125,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.410072, 1.8792524, 4.4689
 [node name="pauseMenu" parent="ui" unique_id=1569571817 instance=ExtResource("10_fcw1q")]
 visible = false
 
-[node name="objectiveManager" type="Node" parent="." unique_id=884415934]
-script = ExtResource("11_5t71q")
+[node name="countDownUI" parent="ui" unique_id=361368665 instance=ExtResource("9_lvar7")]
 
 [node name="postProcess" parent="." unique_id=1144291995 instance=ExtResource("6_7sups")]
 visible = false
@@ -146,6 +140,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.317184, 1.1522708, 5.8221
 
 [node name="c3" type="Marker3D" parent="cheeseSpawner" unique_id=1881485113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.850773, 1.1522708, 11.958979)
+
+[node name="interactables" type="Node3D" parent="." unique_id=2003854488]
+
+[node name="cheese" parent="interactables" unique_id=1484126704 instance=ExtResource("7_d7fxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.410072, 1.8792524, 4.4689374)
+
+[node name="cheese3" parent="interactables" unique_id=407799713 instance=ExtResource("7_d7fxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.670532, 1.8792524, 9.178072)
+
+[node name="cheese2" parent="interactables" unique_id=1701392091 instance=ExtResource("7_d7fxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.410072, 1.8792524, 13.158024)
+
+[node name="Managers" type="Node" parent="." unique_id=501318341]
+
+[node name="ObjectiveManager" type="Node" parent="Managers" unique_id=884415934]
+script = ExtResource("11_5t71q")
+
+[node name="StateManager" type="Node" parent="Managers" unique_id=2134168737]
+script = ExtResource("12_suc14")
+
+[node name="CollectibleManager" type="Node" parent="Managers" unique_id=2003718 node_paths=PackedStringArray("collectibles")]
+script = ExtResource("13_fcw1q")
+collectibles = [NodePath("../../interactables/cheese"), NodePath("../../interactables/cheese2"), NodePath("../../interactables/cheese3")]
 
 [connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_join_pressed"]

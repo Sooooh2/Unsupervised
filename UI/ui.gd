@@ -5,7 +5,8 @@ extends Control
 
 
 func _process(delta: float) -> void:
-	timer.text = "%.2f" % StopWatch.elapsed
+	if StopWatch.running:
+		timer.text = "%.2f" % StopWatch.elapsed
 	
-	if GameState.cheese_found:
+	if GameState.collecting_done:
 		hide()

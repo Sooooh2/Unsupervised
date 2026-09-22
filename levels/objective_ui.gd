@@ -4,3 +4,7 @@ extends Control
 
 func set_objective(text : String) -> void:
 	objective.text = text
+
+
+func hide_objective() -> void:
+	hide()

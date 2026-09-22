@@ -22,3 +22,4 @@ offset_bottom = 87.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)

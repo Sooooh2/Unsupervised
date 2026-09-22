@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 		apply_central_impulse(Vector3.UP * jump_force)
 	# BOOST
 	if Input.is_action_pressed("boost"):
-		print(';sfsvdfvdcb fedfsgbnvfgdseqwd')
 		torque *= boost_multiplier
 	if not is_on_ground():
 		apply_central_force(-global_transform.basis.z * air_boost_multiplier)

@@ -2,7 +2,7 @@ extends Node3D
 
 var peer = ENetMultiplayerPeer.new()
 @export var player_scene : PackedScene
-@onready var objective_manager: Node = $objectiveManager
+@onready var objective_manager: Node = $Managers/ObjectiveManager
 @onready var objective_ui: Control = $ui/objectiveUI
 @onready var dialogue_ui: Control = $ui/dialogueUI
 @onready var ui: Control = $ui/UI
@@ -11,7 +11,9 @@ var peer = ENetMultiplayerPeer.new()
 
 
 func _ready() -> void:
-	objective_manager.start_game()
+	if GameState.is_speedrun:
+		await get_tree().create_timer(5.0).timeout
+		objective_manager.start_game()
 
 
 

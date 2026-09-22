@@ -1,28 +1,27 @@
 extends Node
 
-@onready var objective_manager: Control = $"../ui/objectiveUI"
-@onready var dialogue_manager: Control = $"../ui/dialogueUI"
-@onready var cheese: Node3D = $"../cheese"
+@onready var collectible_manager: Node = $"../CollectibleManager"
+@onready var objective_ui: Control = $"../../ui/objectiveUI"
+@onready var dialogue_ui: Control = $"../../ui/dialogueUI"
+@onready var cheese: Node3D = $"../../interactables/cheese"
 
 
-func _ready() -> void:
-	cheese.cheese_collected.connect(_on_cheese_collected)
+var curr_obj_index := 0
+var collectibles: Array[Node3D] = []
+
+
 
 
 func start_game() -> void:
 	print("wsdg")
-	GameState.curr_objective = GameState.Objectives.get_cheese
+	objective_ui.set_objective("GO COLLECT THINGS!")
+
+	await StopWatch.start_countdown(3.0)
+	GameState.curr_objective = GameState.Objectives.collect_items
 	StopWatch.start_timer()
-	
-	objective_manager.set_objective("GO FIND CHEESE!")
+	collectible_manager.start_collecting()
 
 
-func _on_cheese_collected() -> void:
-	if GameState.curr_objective != GameState.Objectives.get_cheese:
-		return 
-	GameState.cheese_found = true
-	StopWatch.stop_timer()
-	var time_taken = StopWatch.elapsed
-	dialogue_manager.show_msg("you found it ! in under %.2f" % time_taken)
-	print("asbfdwdfsbgvfdawadfsgg")
-	GameState.curr_objective = GameState.Objectives.none
+func stop_game() -> void:
+		objective_ui.hide_objective()
+		print(GameState.curr_objective)
