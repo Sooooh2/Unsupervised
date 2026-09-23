@@ -23,3 +23,13 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="boostProgressBar" type="ProgressBar" parent="." unique_id=475777371]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1276533256]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

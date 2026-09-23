@@ -12,9 +12,13 @@ extends VehicleBody3D
 @export var jump_force := 1500.0
 @export var air_boost_multiplier := 1900.0
 
-var has_speedboost := false
-var has_jumpboost := false
+@export var boost_recharge_time := 5.0
 
+var has_speedboost := false
+var boost_available := true
+var boost_recharging := false
+
+var has_jumpboost := false
 
 func _ready() -> void:
 	powerups_manager.powerup_collected.connect(_on_powerup_collected)
@@ -56,10 +60,12 @@ func _physics_process(delta: float) -> void:
 
 
 	# SPEED BOOST
-	if has_speedboost:
+	if has_speedboost and boost_available:
 		if Input.is_action_pressed("boost"):
 			torque *= boost_multiplier
 
+		if Input.is_action_just_released("boost"):
+			start_boost_recharge()
 		if not is_on_ground():
 			apply_central_force(
 				-global_transform.basis.z * air_boost_multiplier
@@ -119,7 +125,21 @@ func _on_powerup_collected(type: PowerupManager.PowerupType) -> void:
 
 func activate_speed_boost() -> void:
 	has_speedboost = true
+	boost_available = true
 
 
 func activate_jump_boost() -> void:
 	has_jumpboost = true
+
+
+func start_boost_recharge() -> void:
+	boost_available = false
+	boost_recharging = true
+
+	$boostRechargeTimer.start(boost_recharge_time)
+
+
+func _on_boost_recharge_timer_timeout() -> void:
+	print("recharge happening")
+	boost_available = true
+	boost_recharging = false

@@ -131,3 +131,8 @@ script = ExtResource("2_mjb8q")
 
 [node name="cam" type="Camera3D" parent="camRig" unique_id=1965252557]
 transform = Transform3D(0.9765075, 0, -0.21548355, 0, 1, 0, 0.21548355, 0, 0.9765075, 0, 0, 0)
+
+[node name="boostRechargeTimer" type="Timer" parent="." unique_id=1900814061]
+one_shot = true
+
+[connection signal="timeout" from="boostRechargeTimer" to="." method="_on_boost_recharge_timer_timeout"]
