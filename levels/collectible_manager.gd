@@ -17,8 +17,6 @@ func start_collecting() -> void:
 
 
 func _on_thing_collected(thing: Node3D) -> void:
-	#if thing != collectibles[cur_index]:
-		#return
 	cur_index += 1
 	item_collected.emit()
 	
@@ -30,4 +28,4 @@ func _finished_collecting() -> void:
 	objective_manager.stop_game()
 	StopWatch.running = false
 	GameState.collecting_done = true
-	dialogue_ui.show_msg("collected in  %.2f" % StopWatch.elapsed)
+	dialogue_ui.show_msg("collected in  %.2f" % StopWatch.elapsed, 2.0)

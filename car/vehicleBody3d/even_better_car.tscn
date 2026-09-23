@@ -28,6 +28,8 @@ albedo_color = Color(0.59717613, 0.59717613, 0.5971761, 1)
 [node name="EvenBetterCar" type="VehicleBody3D" unique_id=597068362 groups=["car"]]
 mass = 240.0
 script = ExtResource("1_eg83t")
+turn_speed = 7
+turn_amt = 0.5
 
 [node name="carMesh" type="MeshInstance3D" parent="." unique_id=368338622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.055628777, 0)

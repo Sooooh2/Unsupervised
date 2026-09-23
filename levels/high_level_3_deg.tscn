@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://cavrta4xoyh3w" path="res://levels/state_manager.gd" id="12_suc14"]
 [ext_resource type="Script" uid="uid://8g11gqvm4noh" path="res://levels/collectible_manager.gd" id="13_fcw1q"]
 [ext_resource type="PackedScene" uid="uid://dyekxr2hbadoy" path="res://car/vehicleBody3d/even_better_car.tscn" id="14_423mq"]
+[ext_resource type="Script" uid="uid://dkxexvwwvtg3h" path="res://levels/powerups_manager.gd" id="15_y5tfa"]
+[ext_resource type="PackedScene" uid="uid://d0k5owvbc42cw" path="res://interactables/powerups/powerupBase.tscn" id="16_kg2av"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y35s6"]
 sky_top_color = Color(0.21346751, 0.28261712, 0.40553746, 1)
@@ -30,6 +32,10 @@ sky = SubResource("Sky_y5mqb")
 volumetric_fog_emission = Color(0.2293199, 0.1512829, 0.12775075, 1)
 
 [sub_resource type="Compositor" id="Compositor_423mq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_v4wfm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_owbgv"]
 
 [node name="highLevel3Deg" type="Node3D" unique_id=282567522]
 script = ExtResource("1_suc14")
@@ -163,6 +169,22 @@ script = ExtResource("12_suc14")
 [node name="CollectibleManager" type="Node" parent="Managers" unique_id=2003718 node_paths=PackedStringArray("collectibles")]
 script = ExtResource("13_fcw1q")
 collectibles = [NodePath("../../interactables/cheese"), NodePath("../../interactables/cheese2"), NodePath("../../interactables/cheese3")]
+
+[node name="PowerupsManager" type="Node" parent="Managers" unique_id=1533589680 node_paths=PackedStringArray("powerups")]
+script = ExtResource("15_y5tfa")
+powerups = [NodePath("../../powerups/jump"), NodePath("../../powerups/speedBoost")]
+
+[node name="powerups" type="Node3D" parent="." unique_id=2131204847]
+
+[node name="speedBoost" parent="powerups" unique_id=550277839 instance=ExtResource("16_kg2av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.934265, 1.7349606, 15.258171)
+powerup_type = 0
+powerup_mesh = SubResource("SphereMesh_v4wfm")
+
+[node name="jump" parent="powerups" unique_id=1788325932 instance=ExtResource("16_kg2av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.210617, 1.535399, 8.532061)
+powerup_type = 1
+powerup_mesh = SubResource("BoxMesh_owbgv")
 
 [connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_join_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d0k5owvbc42cw"]
+
+[ext_resource type="Script" uid="uid://bihp16f6vo87q" path="res://interactables/powerups/powerup_base.gd" id="1_owbgv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xnjww"]
+radius = 0.6612008
+
+[sub_resource type="SphereMesh" id="SphereMesh_wc3vn"]
+
+[node name="powerUpBase" type="Area3D" unique_id=1666049287]
+script = ExtResource("1_owbgv")
+powerup_type = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=259516822]
+shape = SubResource("SphereShape3D_xnjww")
+
+[node name="visual" type="Node3D" parent="." unique_id=706873649]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="visual" unique_id=1374330373]
+mesh = SubResource("SphereMesh_wc3vn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

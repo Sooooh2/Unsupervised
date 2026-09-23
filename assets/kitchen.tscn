@@ -9,6 +9,10 @@
 [ext_resource type="Material" uid="uid://6h0ne1cked2" path="res://assets/textures/counter.tres" id="7_kgoi6"]
 [ext_resource type="Texture2D" uid="uid://pshdfwrydn76" path="res://assets/textures/oven.png" id="7_lsuko"]
 [ext_resource type="Material" uid="uid://bkdit2636yvb7" path="res://assets/textures/counterDoor.tres" id="7_pf7dt"]
+[ext_resource type="Texture2D" uid="uid://5rmj1p2wa2ww" path="res://assets/textures/fridgeDoorS.png" id="8_eiq6y"]
+[ext_resource type="Texture2D" uid="uid://dn8vfjj58lob5" path="res://assets/textures/fridgeDoor.png" id="9_584w2"]
+[ext_resource type="Texture2D" uid="uid://wnp8nve0fsp6" path="res://assets/textures/normalWood.jpeg" id="10_xh4k2"]
+[ext_resource type="Texture2D" uid="uid://nbf52q8gmctg" path="res://assets/textures/rough.jpeg" id="11_qhhpk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eiq6y"]
 albedo_texture = ExtResource("2_lsuko")
@@ -83,6 +87,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xh4k2"]
+albedo_texture = ExtResource("8_eiq6y")
+roughness = 0.35
+roughness_texture = ExtResource("11_qhhpk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhhpk"]
+albedo_texture = ExtResource("9_584w2")
+roughness_texture = ExtResource("11_qhhpk")
+normal_texture = ExtResource("10_xh4k2")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ut5l5"]
 albedo_texture = ExtResource("7_lsuko")
 
@@ -98,7 +112,7 @@ metallic = 0.71
 
 [node name="kitchen" unique_id=43569280 instance=ExtResource("1_ah8pn")]
 
-[node name="Area" parent="." index="0" unique_id=1468692807]
+[node name="Area" parent="." index="0" unique_id=348738106]
 transform = Transform3D(-0.56243026, 0.69888633, 0.44184858, 0.08574936, -0.48219645, 0.87185645, 0.8223863, 0.52824664, 0.2112728, 37.638878, 33.23385, 54.172234)
 visible = false
 light_energy = 50.0
@@ -106,15 +120,14 @@ shadow_enabled = true
 omni_range = 100.0
 omni_attenuation = 1.385
 
-[node name="Area_001" parent="." index="1" unique_id=241951137]
+[node name="Area_001" parent="." index="1" unique_id=511201453]
 transform = Transform3D(0.08067894, 0.87556654, 0.47631314, 0.08574968, -0.4821963, 0.8718565, 0.99304473, -0.029496774, -0.11398264, 37.957165, 31.973022, -10.465)
-visible = false
 light_energy = 101.425
 shadow_enabled = true
 omni_range = 90.53421
 omni_attenuation = 2.59
 
-[node name="Area_003" parent="." index="2" unique_id=1760707422]
+[node name="Area_003" parent="." index="2" unique_id=1561629427]
 transform = Transform3D(-0.8441947, -0.4999102, -0.1934556, 0.085749716, -0.4821965, 0.8718564, -0.5291335, 0.71942776, 0.4499349, 5.0982475, 8.206631, 54.026093)
 visible = false
 light_energy = 50.0
@@ -122,13 +135,13 @@ shadow_enabled = true
 omni_range = 39.45804
 omni_attenuation = 1.655
 
-[node name="Area_004" parent="." index="3" unique_id=1628409667]
+[node name="Area_004" parent="." index="3" unique_id=517853333]
 transform = Transform3D(0.953362, 0.29388958, 0.06877483, 0.08574993, -0.48219636, 0.87185645, 0.2893925, -0.82529736, -0.48490864, -13.264931, 29.768585, -8.202482)
 light_energy = 100.0
 shadow_enabled = true
-omni_range = 100.0
+omni_range = 351.83902
 
-[node name="Area_005" parent="." index="4" unique_id=1621773428]
+[node name="Area_005" parent="." index="4" unique_id=1622071738]
 transform = Transform3D(0.080678955, 0.8755665, 0.47631326, 0.0857497, -0.4821964, 0.87185645, 0.99304473, -0.02949675, -0.11398266, 19.751543, 3.8309705, -10.200223)
 visible = false
 light_energy = 21.78
@@ -136,92 +149,97 @@ shadow_enabled = true
 omni_range = 50.0
 omni_attenuation = 1.91
 
-[node name="Area_006" parent="." index="5" unique_id=1694517761]
+[node name="Area_006" parent="." index="5" unique_id=1779621075]
 transform = Transform3D(0.080678955, 0.8755665, 0.47631323, 0.0857497, -0.4821964, 0.87185645, 0.99304473, -0.02949676, -0.11398266, 9.052075, 7.2015123, -14.568257)
-visible = false
 light_energy = 50.0
 shadow_enabled = true
 omni_range = 74.73755
 omni_attenuation = 0.91
 
-[node name="cabinet3_001" parent="." index="6" unique_id=642245392]
+[node name="cabinet3_001" parent="." index="6" unique_id=1676140647]
 surface_material_override/0 = SubResource("StandardMaterial3D_eiq6y")
 
-[node name="CabinetDoor3_001" parent="cabinet3_001" index="0" unique_id=480608912]
+[node name="CabinetDoor3_001" parent="cabinet3_001" index="0" unique_id=1988527217]
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="CabinetDrawer2_001" parent="cabinet3_001" index="1" unique_id=1088399500]
+[node name="CabinetDrawer2_001" parent="cabinet3_001" index="1" unique_id=135874155]
 surface_material_override/0 = ExtResource("4_pf7dt")
 
-[node name="cabinet3_002" parent="." index="7" unique_id=1828867517]
+[node name="cabinet3_002" parent="." index="7" unique_id=1611094518]
 surface_material_override/0 = SubResource("StandardMaterial3D_2dxbj")
 
-[node name="CabinetDoor3_002" parent="cabinet3_002" index="0" unique_id=494255091]
+[node name="CabinetDoor3_002" parent="cabinet3_002" index="0" unique_id=1690324119]
 mesh = SubResource("ArrayMesh_pf7dt")
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="CabinetDrawer2_002" parent="cabinet3_002" index="1" unique_id=1842933444]
+[node name="CabinetDrawer2_002" parent="cabinet3_002" index="1" unique_id=506602262]
 surface_material_override/0 = ExtResource("4_pf7dt")
 
-[node name="cabinet3_003" parent="." index="8" unique_id=660597371]
+[node name="cabinet3_003" parent="." index="8" unique_id=502654558]
 surface_material_override/0 = SubResource("StandardMaterial3D_4xfso")
 
-[node name="cabinet3" parent="cabinet3_003" index="0" unique_id=562967190]
+[node name="cabinet3" parent="cabinet3_003" index="0" unique_id=302810933]
 mesh = SubResource("ArrayMesh_2dxbj")
 surface_material_override/0 = ExtResource("7_kgoi6")
 
-[node name="CabinetDoor2" parent="cabinet3_003/cabinet3" index="0" unique_id=85523427]
+[node name="CabinetDoor2" parent="cabinet3_003/cabinet3" index="0" unique_id=898479328]
 transform = Transform3D(1, 0, 2.842171e-14, 0, -0.661831, -3.0057421e-07, 0, 2.3428332e-07, -0.8490974, 3.333702, -1.083051, 3.939149)
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="CabinetDoor3" parent="cabinet3_003/cabinet3" index="1" unique_id=1351254254]
+[node name="CabinetDoor3" parent="cabinet3_003/cabinet3" index="1" unique_id=1291237008]
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="CabinetDoor" parent="cabinet3_003/cabinet3" index="2" unique_id=1843890560]
+[node name="CabinetDoor" parent="cabinet3_003/cabinet3" index="2" unique_id=1069515401]
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="CabinetDrawer2" parent="cabinet3_003/cabinet3" index="3" unique_id=1779668918]
+[node name="CabinetDrawer2" parent="cabinet3_003/cabinet3" index="3" unique_id=1288675137]
 surface_material_override/0 = ExtResource("4_pf7dt")
 
-[node name="CabinetDrawer3" parent="cabinet3_003/cabinet3" index="4" unique_id=1712850085]
+[node name="CabinetDrawer3" parent="cabinet3_003/cabinet3" index="4" unique_id=800867173]
 surface_material_override/0 = ExtResource("4_pf7dt")
 
-[node name="CabinetDrawer" parent="cabinet3_003/cabinet3" index="5" unique_id=1510814991]
+[node name="CabinetDrawer" parent="cabinet3_003/cabinet3" index="5" unique_id=812191280]
 surface_material_override/0 = ExtResource("4_pf7dt")
 
-[node name="oven" parent="." index="29" unique_id=670031988]
+[node name="fridgeDD" parent="fridge" parent_id_path=PackedInt32Array(25322541) index="0" unique_id=322660811]
+surface_material_override/0 = SubResource("StandardMaterial3D_xh4k2")
+
+[node name="fridgeDD_001" parent="fridge" parent_id_path=PackedInt32Array(25322541) index="1" unique_id=864361407]
+surface_material_override/0 = SubResource("StandardMaterial3D_qhhpk")
+
+[node name="oven" parent="." index="29" unique_id=1577251266]
 surface_material_override/0 = SubResource("StandardMaterial3D_ut5l5")
 
-[node name="ovenDoor" parent="oven" index="0" unique_id=1126552620]
+[node name="ovenDoor" parent="oven" index="0" unique_id=895201940]
 transform = Transform3D(0.06966617, 0.9589825, 2.7778972e-07, -0.99757034, 0.06697137, 2.966332e-07, 2.7655994e-07, -2.8626144e-07, 1, 5.141575, -3.9296365, 0.0013504028)
 
-[node name="CollisionShape3D" parent="oven/ovenRack2/StaticBody3D" parent_id_path=PackedInt32Array(1769641028) index="0" unique_id=1393845108]
+[node name="CollisionShape3D" parent="oven/ovenRack2/StaticBody3D" parent_id_path=PackedInt32Array(207792117) index="0" unique_id=1049364347]
 visible = false
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="oven/ovenRack2/StaticBody3D" parent_id_path=PackedInt32Array(1769641028) index="1" unique_id=1506931925]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="oven/ovenRack2/StaticBody3D" parent_id_path=PackedInt32Array(207792117) index="1" unique_id=1506931925]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_fs26w")
 
-[node name="Point" parent="." index="32" unique_id=611334162]
+[node name="Point" parent="." index="32" unique_id=1135151771]
 transform = Transform3D(0.10884351, 0.9923428, 0.05838553, -0.88086236, 0.06906259, 0.46830755, 0.4606894, -0.10240186, 0.88163435, -7.0023603, 8.793554, 41.8515)
 shadow_enabled = true
 
-[node name="Point_002" parent="." index="34" unique_id=1867694968]
+[node name="Point_002" parent="." index="34" unique_id=1617849342]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 3.558445, 8.845709, 16.280264)
 shadow_enabled = true
 
-[node name="sinkCabinet" parent="." index="40" unique_id=500921703]
+[node name="sinkCabinet" parent="." index="40" unique_id=982576091]
 surface_material_override/0 = ExtResource("7_kgoi6")
 
-[node name="sinkCabinetDoor2" parent="sinkCabinet" index="2" unique_id=318775528]
+[node name="sinkCabinetDoor2" parent="sinkCabinet" index="2" unique_id=840105756]
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="sinkCabinetDoor" parent="sinkCabinet" index="3" unique_id=664008749]
+[node name="sinkCabinetDoor" parent="sinkCabinet" index="3" unique_id=917486552]
 surface_material_override/0 = ExtResource("7_pf7dt")
 
-[node name="flowerVase" parent="table" parent_id_path=PackedInt32Array(1114957942) index="2" unique_id=367001501]
+[node name="flowerVase" parent="table" parent_id_path=PackedInt32Array(1782286008) index="2" unique_id=297666454]
 transform = Transform3D(0, 0, 1.8210251, 0, 2.506933, 0, -2.0636456, 0, 0, 16.841759, -2.1369019, -3.6400776)
 surface_material_override/0 = SubResource("StandardMaterial3D_qxxpd")
 
-[node name="toaster" parent="." index="42" unique_id=510988491]
+[node name="toaster" parent="." index="42" unique_id=1060805089]
 surface_material_override/0 = SubResource("StandardMaterial3D_tgv87")
